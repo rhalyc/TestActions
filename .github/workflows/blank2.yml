@@ -11,6 +11,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      
+      - name: get actor
+        run: echo "${{ github.actor }}"
 
       - name: Run a one-line script
         run: bash main.sh
