@@ -27,3 +27,12 @@ jobs:
  
       - run: aws sts get-caller-identity
         shell: bash
+
+      - name: Assume Role with Web Identity
+        run: |
+          aws sts assume-role-with-web-identity \
+            --role-arn arn:aws:iam::005914422131:role/sts-lab-2-target \
+            --role-session-name something \
+            --web-identity-token file:///var/run/secrets/eks.amazonaws.com/serviceaccount/token
+        shell: bash
+
